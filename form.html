@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+     <title> HTML PAGE </title>
+     <style>
+         .html_form form{
+    margin: 20px;
+    padding: 20px;
+    box-shadow: 1px 1px 16px black;
+    width: 50%;
+    text-align: left; 
+    border-radius: 10px;
+}.html_form form button{
+    margin: 10px;
+    padding: 10px;
+    border: none;
+    background-color: orange;
+    font-weight: bold;
+    font-family: verdana;
+    font-size: 12px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 8px black;
+}
+.html_form form h2{
+    color: blue;
+    font-size: 25px;
+    font-family: verdana;
+    font-weight: bold;
+    padding: 10px; 
+    margin: 10px;
+    text-align: center;
+}
+.html_form form input{
+    width: 90%;
+    margin: 10px; 
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    border-left: 2px solid orange;
+    box-shadow: 1px 1px 1px orange;
+}
+.html_form form input:focus{
+    border-left: 4px solid blue;
+    border-right: 4px solid blue;
+    box-shadow: 3px 3px 3px orange;
+}
+.html_form form select:focus{
+    border-left: 4px solid blue;
+}
+.html_form form select{
+    width: 90%;
+    margin: 10px; 
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    border-left: 2px solid orange;
+    box-shadow: 1px 1px 1px orange;
+}
+     </style>
+
+</head>
+<body>
+
+     
+<!--html form-->
+<div class="html_form">
+     <form  name="submit_feedback" method="post">
+          <h2>Register</h2>
+          <input type="text" id="username" placeholder="Your Name" name="Name"><br>
+        <!--  <span id="errorname" style="color: red;"></span>-->
+          <input type="email" id="email" placeholder="Your Mail ID" name="Email ID"><br>
+        <!---  <span id="erroremail" style="color: red;"></span>-->
+          <input type="number" id="number" placeholder="Your mo. number" name="Number"><br>
+         <!--- <span id="errornumber" style="color: red;"></span>-->
+          <select required name="Branch">
+               <option>--Branch--</option>
+               <option>CS</option>
+               <option>IT</option>
+               <option>E&TC</option>
+               <OPTION>ELECTRICAL</OPTION>
+               <option>MECHANICAL</option>
+               <option>CIVIL</option>
+          </select><br>
+          <select required name="Year">
+               <option>--YEAR--</option>
+               <option>1st Year</option>
+               <option>2nd Year</option>
+               <option>3rd Year</option>
+               <option>4th Year</option>
+          </select><br>
+          <input type="text" placeholder="Your Collage Name" name="Collage Name"><br>
+          <button type="submit" name="submit">submit</button>
+          <button type="reset">Fill again all</button>
+     </form>
+</div>
+
+<!--<script type="text/javascript">
+     function validation(){
+        var username = document.getElementById('username').value;
+        var email = document.getElementById('email').value;
+        var unmber = document.getElementById('number').value;
+
+        var usercheak = /^[A-Za-z]{3,40}$/;
+        var emailcheak = /^[A-A-Za-z_0-9.]{3,}@[A-A-Za-z]{3,}[.]{1}[A-A-Za-z.]{2,6}$/;
+        var numberheak = /^[6789][0-9]{9}$/;
+
+        if (usercheak.test(username)) {
+            document.getElementsById('errorname').innerhtml=" ";
+        } 
+        else{
+            document.getElementsById('errorname').innerhtml="*Initials have to be uppercase*";
+            return false;
+        } 
+        if (emailcheak.test(email)){
+            document.getElementsById('erroremail').innerhtml=" ";
+        } 
+        else{
+            document.getElementsById('erroremail').innerhtml="*Enter valid Email*";
+            return false;
+        }
+        if (numberheak.test(number)){
+            document.getElementsById('errorunmber').innerhtml=" ";
+        } 
+        else{
+            document.getElementsById('errorunmber').innerhtml="*Enter valid number*";
+            return false;
+        }
+     }
+</script>-->
+<script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbz5lypRu-ztNRcPrk72R24qk88th0XVq3l-PrBjoIojkAtbQJrn6JiiKgjPSZKld2kZ/exec'
+            const form = document.forms['submit_feedback']
+          
+            form.addEventListener('submit', e => {
+              e.preventDefault()
+              fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                .then(response => alert("Thank you, For your review"))
+                .catch(error => console.error('Error!', error.message))
+            })
+</script>
+
+<!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</script>-->
+
+</body>
+</html>
